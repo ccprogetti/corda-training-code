@@ -72,7 +72,10 @@ public class IssueFlow {
                 FINALISING_TRANSACTION
         );
 
-        public Initiator(int quantity, Party otherParty) {
+        public Initiator(int quantity, Party otherParty){
+        	
+        	if ( quantity < 0 ) throw new NullPointerException("quantity must not be null");
+        	
             this.quantity = quantity;
             this.holder = otherParty;
         }
@@ -129,7 +132,7 @@ public class IssueFlow {
             // Stage 5.
             progressTracker.setCurrentStep(FINALISING_TRANSACTION);
             // Notarise and record the transaction in both parties' vaults.
-            return subFlow(new FinalityFlow(/*fullySignedTx*/partSignedTx, ImmutableSet.of(holder)));
+            return subFlow(new FinalityFlow(/*fullySignedTx*/partSignedTx, ImmutableSet.of( otherPartySession )));
         }
     }
 
