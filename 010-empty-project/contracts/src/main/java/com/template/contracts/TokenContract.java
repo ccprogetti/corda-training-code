@@ -14,9 +14,6 @@ import com.template.states.TokenState;
 import net.corda.core.contracts.Command;
 import net.corda.core.contracts.CommandData;
 import net.corda.core.contracts.Contract;
-import net.corda.core.contracts.ContractState;
-import net.corda.core.contracts.TransactionState;
-import net.corda.core.identity.AbstractParty;
 import net.corda.core.transactions.LedgerTransaction;
 
 // ************
@@ -101,6 +98,7 @@ public class TokenContract implements Contract {
 
 			final List<TokenState> outList = tx.outputsOfType(TokenState.class);
 
+			//FIXME: questo non va bene perchè ci si aspettano + input/output
 			require.using("The issure and the owner cannot be the same entity.", out.getIssuer() != out.getHolder());
 			require.using("The owner in cannot be the same to older out.", out.getHolder() != in.getHolder());
 
