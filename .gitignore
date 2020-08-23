@@ -76,3 +76,8 @@ docs/virtualenv/
 
 # if you use the installQuasar task
 lib
+/010-empty-project/.idea/
+/010-empty-project/.idea/**
+/010-empty-project/.settings/
+/010-empty-project/contracts/.settings/*
+/.idea/*

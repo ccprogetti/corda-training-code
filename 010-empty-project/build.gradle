@@ -4,6 +4,10 @@ buildscript {
 
     ext {
 
+		tokens_release_version = '1.1'
+		tokens_release_group = 'com.r3.corda.lib.tokens'
+		confidential_id_release_version = '1.0'
+		confidential_id_release_group = 'com.r3.corda.lib.ci'
         corda_release_group = constants.getProperty("cordaReleaseGroup")
         corda_core_release_group =  constants.getProperty("cordaCoreReleaseGroup")
         corda_release_version = constants.getProperty("cordaVersion")
